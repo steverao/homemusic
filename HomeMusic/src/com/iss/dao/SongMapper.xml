@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iss.dao.SongDaoI">
+	 
+	<select id="doSearch" resultType="hashmap" parameterType="String">
+		<!-- <bind name="pattern" value="'%' + _parameter + '%'"/> -->
+		SELECT *
+		from song 
+		WHERE name LIKE concat(concat('%',#{_parameter}),'%') or singer LIKE  concat(concat('%',#{_parameter}),'%');		
+	</select>
+	
+	<select id="getLatestSongs" resultType="hashmap">
+		SELECT * 
+		from song 
+		ORDER BY pub_date limit 20;
+	</select>
+	
+	<select id="getLatestSpecial" resultType="hashmap">
+		SELECT  a.id , a.name, a.singer, s.img
+		FROM album as a, song as s 
+		WHERE s.aid = a.id 
+		GROUP BY a.name
+		ORDER BY a.pub_date LIMIT 20;
+	</select>
+</mapper>

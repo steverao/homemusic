@@ -1,0 +1,43 @@
+$(window).resize(function(){
+	$("#player-container").css({ 
+        position: "absolute", 
+        left: ($(window).width() - $("#player-container").outerWidth())/2, 
+        top: ($(window).height() - $("#player-container").outerHeight())/2 
+   });  
+});
+
+$(function(){
+	$(window).resize();
+	
+	/////////////////////////////////////////////
+	//弹出最新专辑页面
+	$(".box-1").click(function(){
+		$("#new-spe").fadeIn(1000);
+	});
+	
+	//弹出新歌推荐页面
+	$(".box-3").click(function(){
+		$("#new-songs").fadeIn(1000);
+	});
+	
+	//弹出搜索页
+	$(".box-5").click(function(){
+		$("#search").fadeIn(1000);
+	});
+	
+	/////////////////////////////////////
+	//弹出歌单管理页
+	$(".box-4").click(function(){
+		$("#list-mana").fadeIn(1000);
+	});
+	//新建歌单
+	$("#create").click(function(){
+		$("#create-list").show();
+	});
+	
+	//关闭页面
+	$(".close-flip").click(function(){
+		$(this).parent().fadeOut(1000);
+	});
+	/////////////////////////////////////////
+});

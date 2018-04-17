@@ -1,0 +1,195 @@
+$(window).resize(function(){
+	$("#player-container").css({ 
+        position: "absolute", 
+        left: ($(window).width() - $("#player-container").outerWidth())/2, 
+        top: ($(window).height() - $("#player-container").outerHeight())/2 
+   });  
+});
+
+$(function(){
+	$(window).resize();
+	
+	/////////////////////////////////////////////
+	//弹出最新专辑页面
+	$(".box-1").click(function(){
+		$("#new-spe").fadeIn(1000);
+	});
+	
+	//弹出新歌推荐页面
+	$(".box-3").click(function(){
+		$("#new-songs").fadeIn(1000);
+	});
+	
+	//弹出搜索页
+	$(".box-5").click(function(){
+		$("#search").fadeIn(1000);
+	});
+	
+	/////////////////////////////////////
+	//弹出歌单管理页
+	$(".box-4").click(function(){
+		$("#list-mana").fadeIn(1000);
+	});
+	//新建歌单
+	$("#create").click(function(){
+		$("#create-list").fadeIn(500);
+	});
+	
+	//显示歌单内容
+	$("#lst-cont").click(function(){
+		$(".cont-lst").fadeIn(1000);
+	});
+	
+	
+	//显示歌曲操作
+	$(".lst-dp tr").mouseover(function(){
+		$(this).find(".opt-song-name").hide();
+		$(this).find(".cont-opt").show();
+	});
+	
+	$(".lst-dp tr").mouseout(function(){
+		$(this).find(".cont-opt").hide();
+		$(this).find(".opt-song-name").show();
+	});
+	
+	//显示播放列表
+	$(".play-lst").click(function(){
+		$("#play-list").fadeIn(1000);
+	});
+	
+	$("#user-login").click(function(){
+		$("#login").fadeIn(1000);
+	});
+	/////////////////////////////////
+	
+	//显示收藏页面
+	$(".coll-song").click(function(){
+		$("#song-collect").fadeIn(1000);
+	});
+	//关闭页面
+	$(".close-flip").click(function(){
+		$(this).parent().fadeOut(1000);
+	});
+	
+	/*
+	//显示收藏图标
+	$(".scl-item").mouseover(function(){
+		$(this).children(".img-wrap").children(".add-song").show();
+	});
+	//关闭显示收藏图标
+	$(".scl-item").mouseout(function(){
+		$(this).children(".img-wrap").children(".add-song").hide();
+	});
+	*/
+	
+	//关闭新建歌单页
+	$("#create-cancel").click(function(){
+		$("#create-list").fadeOut(500);
+	});
+	
+	$(".add-song").mousedown(function(){
+		$(".add-song").removeClass("glyphicon-star-empty");
+		$(".add-song").addClass("glyphicon-star");
+	});
+	
+	$(".add-song").mouseup(function(){
+		$(".add-song").removeClass("glyphicon-star");
+		$(".add-song").addClass("glyphicon-star-empty");
+	});
+	/////////////////////////////////////////
+	
+	$(".play").click(function(){
+		$(".play").hide();
+		$(".pause").show();
+		playMusic();
+	});
+	
+	$(".pause").click(function(){
+		$(".pause").hide();
+		$(".play").show();
+		playMusic();
+	});
+	
+	
+	//外部引用//////////////////////////////////////////////////
+		//the form wrapper (includes all forms)
+				var $form_wrapper	= $('#form_wrapper'),
+					//the current form is the one with class active
+					$currentForm	= $form_wrapper.children('form.active'),
+					//the change form links
+					$linkform		= $form_wrapper.find('.linkform');
+						
+				//get width and height of each form and store them for later						
+				$form_wrapper.children('form').each(function(i){
+					var $theForm	= $(this);
+					//solve the inline display none problem when using fadeIn fadeOut
+					if(!$theForm.hasClass('active'))
+						$theForm.hide();
+					$theForm.data({
+						width	: $theForm.width(),
+						height	: $theForm.height()
+					});
+				});
+				
+				//set width and height of wrapper (same of current form)
+				setWrapperWidth();
+				
+				/*
+				clicking a link (change form event) in the form
+				makes the current form hide.
+				The wrapper animates its width and height to the 
+				width and height of the new current form.
+				After the animation, the new form is shown
+				*/
+				$linkform.bind('click',function(e){
+					var $link	= $(this);
+					var target	= $link.attr('rel');
+					$currentForm.fadeOut(400,function(){
+						//remove class active from current form
+						$currentForm.removeClass('active');
+						//new current form
+						$currentForm= $form_wrapper.children('form.'+target);
+						//animate the wrapper
+						$form_wrapper.stop()
+									 .animate({
+										width	: $currentForm.data('width') + 'px',
+										height	: $currentForm.data('height') + 'px'
+									 },500,function(){
+										//new form gets class active
+										$currentForm.addClass('active');
+										//show the new form
+										$currentForm.fadeIn(400);
+									 });
+					});
+					e.preventDefault();
+				});
+				
+				function setWrapperWidth(){
+					$form_wrapper.css({
+						width	: $currentForm.data('width') + 'px',
+						height	: $currentForm.data('height') + 'px'
+					});
+				}
+				
+				/*
+				for the demo we disabled the submit buttons
+				if you submit the form, you need to check the 
+				which form was submited, and give the class active 
+				to the form you want to show
+				*/
+				$form_wrapper.find('input[type="submit"]')
+							 .click(function(e){
+								e.preventDefault();
+							 });
+	//end外部引用//////////////////////////////////////////////////////
+});
+
+function playMusic() {
+  	var player = $("#the-audio")[0]; /*jquery对象转换成js对象*/
+    if (player.paused){ /*如果已经暂停*/
+         player.play(); /*播放*/
+       }else {
+         player.pause();/*暂停*/
+       }
+ }
+

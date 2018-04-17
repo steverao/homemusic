@@ -1,0 +1,216 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : root
+Source Server Version : 50536
+Source Host           : localhost:3306
+Source Database       : test
+
+Target Server Type    : MYSQL
+Target Server Version : 50536
+File Encoding         : 65001
+
+Date: 2018-03-15 09:33:11
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for book
+-- ----------------------------
+DROP TABLE IF EXISTS `book`;
+CREATE TABLE `book` (
+  `bid` int(11) NOT NULL AUTO_INCREMENT,
+  `bname` varchar(50) NOT NULL,
+  `author` varchar(30) NOT NULL,
+  `price` float NOT NULL,
+  `publisher` varchar(40) DEFAULT NULL,
+  `pubdate` date DEFAULT NULL,
+  `picture` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`bid`)
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of book
+-- ----------------------------
+INSERT INTO `book` VALUES ('2', '藏地密码 : 唐卡典藏版3', '何马', '32', '北京时代华文书局', '2014-07-01', '23505384-1_u_2.jpg');
+INSERT INTO `book` VALUES ('3', '谋杀似水年华（新版）', '蔡骏', '38', '作家出版社', '2014-11-01', '23596098-1_u_1.jpg');
+INSERT INTO `book` VALUES ('5', '我的盖世英熊', '鲍鲸鲸', '25', '北京联合出版公司', '2015-10-01', '23801944-1_u_1.jpg');
+INSERT INTO `book` VALUES ('6', '红玫瑰，半生缘', '张爱玲', '26', '石油工业出版社', '2014-05-01', '23461516-1_u_3.jpg');
+INSERT INTO `book` VALUES ('8', '潜伏在办公室（白金纪念版）', '陆琪', '29.8', '长江文艺出版社', '2013-06-01', '232695321u1.jpg');
+INSERT INTO `book` VALUES ('13', '何以笙箫默', '顾漫', '25', '沈阳出版社', '2013-05-01', '210011611u3.jpg');
+INSERT INTO `book` VALUES ('15', '我不是潘金莲（西）', '刘震云', '99', '五洲传播出版社', '2015-04-01', '23710629-1_u_1.jpg');
+INSERT INTO `book` VALUES ('17', '水彩画的写意生活', '秋草爱', '25', '南海出版社', '2011-10-01', '224976381u1.jpg');
+INSERT INTO `book` VALUES ('19', '形式感', '晋小彦', '59', '清华大学出版社', '2014-02-01', '23388313-1_u_2.jpg');
+INSERT INTO `book` VALUES ('20', '单反摄影宝典', '雷依里，郑毅', '89', '水利水电出版社', '2012-06-01', '227508881u1.jpg');
+INSERT INTO `book` VALUES ('21', '航拍中国，1945', '秦风老照片馆', '880', '福建教育出版社', '2014-07-01', '23514352-1_u_2.jpg');
+INSERT INTO `book` VALUES ('25', '事后诸葛亮，事前猪一样', '木木', '20', '江苏文艺出版社', '2011-08-01', '224742221u2.jpg');
+INSERT INTO `book` VALUES ('26', '亲，你知道的太多了', '如是嫣然', '26.8', '作家出版社', '2012-07-01', '228032661u1.jpg');
+INSERT INTO `book` VALUES ('27', '宇宙百科全书', '李继勇', '99', '延边大学出版社', '2016-04-01', '23959246-1_u_5.jpg');
+INSERT INTO `book` VALUES ('29', '疯了！桂宝.3，冰爽卷(白金版) ', '阿桂', '36.8', '九州出版社', '2014-05-01', '23448306-1_u_1.jpg');
+INSERT INTO `book` VALUES ('30', '哥斯拉不说话', '夏达', '25', '新世纪出版社', '2010-12-01', '209778971u2.jpg');
+INSERT INTO `book` VALUES ('31', '告别曾经弱小 你要内心强大', '石勇', '36.8', '文汇出版社', '2016-01-01', '23838758-1_u_14.jpg');
+INSERT INTO `book` VALUES ('32', '人生就是放下', '星云大师', '39.8', '甘肃人民美术出版社', '2014-01-01', '23390852-1_u_1.jpg');
+INSERT INTO `book` VALUES ('33', '少有人走的路', '（美）M·斯科特·派克', '32.8', '中国商业出版社', '2013-10-01', '23340261-1_u_3.jpg');
+INSERT INTO `book` VALUES ('34', '秘密', '（澳）拜恩　', '32', '湖南文艺出版社', '2013-06-01', '232371461u4.jpg');
+INSERT INTO `book` VALUES ('35', '潜意识的力量', '（美）约瑟夫·墨菲', '28', '光明日报出版社', '2014-09-01', '23588782-1_u_1.jpg');
+INSERT INTO `book` VALUES ('36', '气场', '（美）菲尔', '28', '重庆出版社', '2010-11-01', '20939382-1_u_8.jpg');
+INSERT INTO `book` VALUES ('37', '六度人脉3', '李维文', '32.8', '湖南文艺出版社', '2013-03-01', '210977571u2.jpg');
+INSERT INTO `book` VALUES ('38', 'FBI读心术1，2', '沐阳', '62.6', 'HarperCollins UK', '2014-12-01', '23590215-1_u_3.jpg');
+INSERT INTO `book` VALUES ('39', '沟通圣经', '尼基斯坦顿', '45', '北京联合出版公司', '2015-11-01', '23813047-1_u_1.jpg');
+INSERT INTO `book` VALUES ('40', '金字塔原理大全集', '（美）芭芭拉·明托', '98', '南海出版社', '2014-05-01', '23456389-1_u_2.jpg');
+INSERT INTO `book` VALUES ('41', '斯坦福极简经济学', '（美）泰勒', '35', '湖南人民出版社', '2015-02-01', '23640176-1_u_1.jpg');
+INSERT INTO `book` VALUES ('42', '高等数学应用基础', '陈君', '45', '浙江大学出版社', '2015-09-01', '23774947-1_u_1.jpg');
+INSERT INTO `book` VALUES ('43', '会计审计专业英语（第3版）', '贺欣，温倩，罗殿英', '30', '机械工业出版社', '2015-11-01', '23803330-1_u_1.jpg');
+INSERT INTO `book` VALUES ('44', '商务英语10000单词', '（澳）帕特森', '45', '湖南文艺出版社', '2015-08-01', '23759916-1_u_1.jpg');
+INSERT INTO `book` VALUES ('45', '计算机专业英语', '朱龙', '26', '人民邮电出版社', '2012-09-01', '228626531u1.jpg');
+INSERT INTO `book` VALUES ('46', '儿童英语听说绘本第3级（全7册）', '（美）斯蒂文克罗尔', '105', '长江少年儿童出版社', '2015-11-01', '23808215-1_u_1.jpg');
+INSERT INTO `book` VALUES ('47', '大学英语语法—讲座与测试', '徐广联', '60', '华东理工大学出版社', '2014-01-01', '23397772-1_u_3.jpg');
+INSERT INTO `book` VALUES ('48', '新东方 (2017)考研英语完形填空精讲精练', '李玉技', '35', '浙江教育出版社', '2016-05-12', '23958958-1_u_8.jpg');
+INSERT INTO `book` VALUES ('49', '明朝那些事儿第1部：洪武大帝', '当年明月', '29.8', '浙江人民出版社', '2011-11-01', '22527678-1_u_1.jpg');
+INSERT INTO `book` VALUES ('50', '位子（中共中央党校内参推荐读物）', '杨新城', '32', '西苑出版社', '2012-07-01', '22784061-1_u_1.jpg');
+INSERT INTO `book` VALUES ('51', '亲历民主：我在美国竞选议员 ', '\r\n\r\n龚小夏', '28', '复旦大学出版社', '2011-08-01', '1386185556-1_u_2.jpg');
+INSERT INTO `book` VALUES ('52', '大战略', '公方彬', '55', '\r\n\r\n广东人民出版社', '2016-03-01', '23918465-1_u_5.jpg');
+INSERT INTO `book` VALUES ('53', '创造低碳绿色家园', '（美）大卫·杰尔森', '22', '安徽科学技术出版社', '2014-10-01', '23604757-1_u_1.jpg');
+INSERT INTO `book` VALUES ('54', '中国震撼中国触动中国超越（张维为中国崛起三部曲）', '张维为', '108', '上海人民出版社', '2015-05-01', '23690828-1_u_1.jpg');
+INSERT INTO `book` VALUES ('55', 'JavaEE开发的颠覆者: Spring Boot实战', '汪云飞', '89', '电子工业出版社', '2016-03-01', '23926195-1_u_6.jpg');
+INSERT INTO `book` VALUES ('56', '移动Web手册（双色）', 'Peter-Paul Koch', '65', '电子工业出版社', '2015-05-01', '23690517-1_u_1.jpg');
+INSERT INTO `book` VALUES ('58', 'JAVA从入门到放弃', '方辉', '250', '软件园公寓#4', '2017-06-23', null);
+
+-- ----------------------------
+-- Table structure for employee
+-- ----------------------------
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `post_type` int(11) NOT NULL,
+  `emp_name` varchar(100) DEFAULT NULL,
+  `emp_sex` int(11) DEFAULT NULL,
+  `emp_age` int(11) DEFAULT NULL,
+  `emp_deptart` varchar(50) DEFAULT NULL,
+  `emp_year` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk1` (`post_type`),
+  KEY `fk2` (`emp_sex`),
+  CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`post_type`) REFERENCES `post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`emp_sex`) REFERENCES `sex` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of employee
+-- ----------------------------
+INSERT INTO `employee` VALUES ('1', '1', '李晓明', '1', '25', '行政部', '2');
+INSERT INTO `employee` VALUES ('2', '1', '杨伟林', '1', '29', '行政部', '5');
+
+-- ----------------------------
+-- Table structure for permission
+-- ----------------------------
+DROP TABLE IF EXISTS `permission`;
+CREATE TABLE `permission` (
+  `pid` int(11) NOT NULL AUTO_INCREMENT,
+  `uri` varchar(100) DEFAULT NULL,
+  `desc` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '',
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of permission
+-- ----------------------------
+INSERT INTO `permission` VALUES ('1', 'bookadd', '图书添加');
+
+-- ----------------------------
+-- Table structure for post
+-- ----------------------------
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE `post` (
+  `id` int(11) NOT NULL,
+  `postName` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of post
+-- ----------------------------
+INSERT INTO `post` VALUES ('1', '行政助理');
+INSERT INTO `post` VALUES ('2', '业务经理');
+INSERT INTO `post` VALUES ('3', '总经理');
+
+-- ----------------------------
+-- Table structure for product
+-- ----------------------------
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product` (
+  `name` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of product
+-- ----------------------------
+INSERT INTO `product` VALUES ('shoes', 'sport', 'Nike', '699.00', 'good');
+
+-- ----------------------------
+-- Table structure for sex
+-- ----------------------------
+DROP TABLE IF EXISTS `sex`;
+CREATE TABLE `sex` (
+  `id` int(11) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sex
+-- ----------------------------
+INSERT INTO `sex` VALUES ('1', '男');
+INSERT INTO `sex` VALUES ('2', '女');
+
+-- ----------------------------
+-- Table structure for tb_ticker
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_ticker`;
+CREATE TABLE `tb_ticker` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `number` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of tb_ticker
+-- ----------------------------
+INSERT INTO `tb_ticker` VALUES ('1', '张飞', '2');
+INSERT INTO `tb_ticker` VALUES ('2', '关羽', '5');
+INSERT INTO `tb_ticker` VALUES ('3', '赵云', '3');
+INSERT INTO `tb_ticker` VALUES ('4', '刘备', '1');
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `nickname` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', 'admin', '111', '阿德米');
+INSERT INTO `user` VALUES ('2', 'icer', '333', '小冰冰');
+INSERT INTO `user` VALUES ('3', 'user', '222', '釉色');
+INSERT INTO `user` VALUES ('4', 'mike', 'm666', '麦克');
+INSERT INTO `user` VALUES ('5', 'jim', 'j111', '吉姆');
+INSERT INTO `user` VALUES ('6', 'tom', 't22', '汤姆');
+INSERT INTO `user` VALUES ('7', 'jarry', 'j666', '嘉瑞');
+INSERT INTO `user` VALUES ('8', 'jack', 'j999', '宅客');
+INSERT INTO `user` VALUES ('9', 'john', 'j111', '赵森');
+INSERT INTO `user` VALUES ('10', 'kkkkk', 'kkkkkk', '可可');

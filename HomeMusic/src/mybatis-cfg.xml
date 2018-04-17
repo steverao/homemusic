@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--以下是给entity中的实体类去别名 -->
+	<typeAliases>
+		<typeAlias type="com.iss.entity.Song" alias="song" />
+		<typeAlias type="com.iss.entity.Album" alias="album" />
+	</typeAliases>
+
+
+
+	<!--对于dao文件中xml都要在这里先注册才能使用 -->
+	<mappers>
+		<mapper resource="com/iss/dao/adminDaoMapper.xml" />
+		<mapper resource="com/iss/dao/bookDaoMapper.xml" />
+		<mapper resource="com/iss/dao/SongMapper.xml" />
+		<mapper resource="com/iss/dao/UserMapper.xml" />
+		<mapper resource="com/iss/dao/UserLstMapper.xml" />
+	</mappers>
+
+</configuration>

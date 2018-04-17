@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iss.dao.UserLstDaoI">
+	<select id="getUserLst" resultType="hashmap">
+		SELECT * 
+		from songlist 
+		where uid = #{0};
+	</select>
+	
+	<select id="getSongsInLst" resultType="hashmap">
+		SELECT * 
+		from favorite, song 
+		WHERE sid = id and slid = #{0};
+	</select>
+	
+	<insert id="doCreateLst">
+		INSERT INTO songlist(name, uid) 
+		VALUES (#{0}, #{1});
+	</insert>
+	
+	<delete id="doDelLst">
+		DELETE FROM songlist 
+		WHERE id = #{0};
+	</delete>
+	
+	<delete id="doDelSongInLst">
+		DELETE FROM favorite 
+		WHERE slid = #{0} and sid = #{1};
+	</delete>
+	
+	<insert id="collSong">
+		INSERT INTO 
+		favorite(slid, sid) 
+		VALUES (#{0}, #{1});
+	</insert>
+	
+	<select id="getSongById" resultType="hashmap">
+		SELECT * 
+		FROM song 
+		WHERE id = #{0};
+	</select>
+	
+	<select id="getSongsBySpid" resultType="hashmap">
+		SELECT * 
+		from song as s, album as a 
+		WHERE a.id = s.aid and a.id = #{0};
+	</select>
+</mapper>

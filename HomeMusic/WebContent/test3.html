@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="css/font-awesome-4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="css/index.css" />
+<script>
+
+	function search() {
+		var keyword = $(".search-song").val();
+		alert(keyword);
+		$
+				.ajax({
+					type : "post",
+					url : "search.do",
+					dataType : "json",
+					data : {
+						"keyword" : keyword,
+						"page" : 1
+					},
+					async : false,
+					success : function(data) {
+						alert(data);
+						var i = 1;
+						$(".search-cont").empty();
+						$(data)
+								.each(
+										function(index) {
+											var $btn = "<div class='glyphicon glyphicon-play-circle  play-btn'></div>";
+											var $coll = "<td class='img-wrap'>"
+													+ "<div class='glyphicon glyphicon-star-empty add-song coll-song'></div></td>"
+											$(".search-cont")
+													.append(
+															"<tr class='scl-item'>"
+																	+ "<td class='img-wrap'>"
+																	+ "<div class='song-img'>"
+																	+ "<img src='"+data[index].img+"' class='img-rounded' />"
+																	+ "</div>"
+																	+ $btn
+																	+ "</td>"
+																	+ "<td>"
+																	+ data[index].name
+																	+ "</td>"
+																	+ "<td>"
+																	+ data[index].singer
+																	+ "</td>"
+																	+ $coll
+																	+ "</tr>");
+										});
+					}
+				});
+	}
+
+	$(function() {
+		$("#search").click(function() {
+			search();
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="input-group">
+		<input type="text" class="form-control search-song"
+			placeholder="请输入关键词..."> <span class="input-group-btn">
+			<button class="btn btn-primary" type="button" id="search">
+				<span class="glyphicon glyphicon-search"></span>
+			</button>
+		</span>
+	</div>
+	<table class="table table-hover table-responsive text-center">
+		<thead>
+			<tr>
+				<td style="width: 60px; background-color: #204D74;"></td>
+				<td style="width: 200px; background-color: #23527C;">歌名</td>
+				<td style="width: 200px; background-color: #23527C;">歌手名</td>
+				<td style="width: 200px; background-color: #23527C;"></td>
+			</tr>
+		</thead>
+		<tbody class="search-cont">
+			<tr class="scl-item">
+				<td class="img-wrap">
+
+					<div class="song-img">
+						<img src="img/testimg.png" class="img-rounded" />
+					</div>
+
+					<div class="glyphicon glyphicon-play-circle  play-btn"></div>
+				</td>
+				<td>Bangalore</td>
+				<td>560001</td>
+			</tr>
+			<tr class="scl-item">
+				<td>Sachin</td>
+				<td>Mumbai</td>
+				<td>400003</td>
+			</tr>
+			<tr class="scl-item">
+				<td>Uma</td>
+				<td>Pune</td>
+				<td>411027</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

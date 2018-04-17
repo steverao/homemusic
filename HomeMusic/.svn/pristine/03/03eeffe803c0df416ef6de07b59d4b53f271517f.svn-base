@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.ajax({
+					url : "../getAllBook.do",
+					type : "POST",
+					dataType : "json",
+					cache : false,
+					success : function(data) {
+						$(data)
+								.each(
+										function(index) {
+											$("#tbResult")
+													.append(
+															"<tr>"
+																	+ "<td>"
+																	+ data[index].bid
+																	+ "</td>"
+																	+ "<td>"
+																	+ data[index].bname
+																	+ "</td>"
+																	+ "</tr>");
+										});
+					}
+				});
+
+	});
+</script>
+</head>
+<body>
+	<div class="panel-body text-center">
+		<table class="table table-hover table-border table-striped">
+			<thead>
+				<tr>
+					<td>ShortForm</td>
+					<td>LongForm</td>
+				</tr>
+			</thead>
+			<tbody id="tbResult">
+
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

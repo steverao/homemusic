@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--以下是给entity中的实体类去别名  -->
+	<typeAliases>
+		
+	</typeAliases>
+	
+	<!--对于dao文件中xml都要在这里先注册才能使用  -->
+	<mappers>
+		<mapper resource="com/iss/dao/bookDaoMapper.xml"/>		
+	</mappers>
+</configuration>

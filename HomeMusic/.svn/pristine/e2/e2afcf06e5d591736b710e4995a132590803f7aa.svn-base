@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<div id="main-container">
+			<div id="player-container">
+				<div id="player-wrap">
+					<div class="navigation box-1" ><div class="effect" id="nsp">最新专辑</div></div>
+					<div class="navigation box-2"><div class="effect">登陆</div></div>
+					<div class="navigation box-3"><div class="effect">新歌推荐</div></div>
+					<div class="navigation box-4"><div class="effect">歌单管理</div></div>
+					<div class="navigation box-5"><div class="effect">搜索</div></div>
+					<div class="navigation box-6"><div class="effect">6</div></div>
+					<div class="player-btn box-7"><div class="player-effect">7</div></div>
+					<div class="player-btn box-8"><div class="player-effect">8</div></div>
+					<div class="player-btn box-9"><div class="player-effect">9</div></div>
+					<div class="player-btn box-10"><div class="player-effect">10</div></div>
+					<div class="player-btn box-11"><div class="player-effect">11</div></div>
+					<div class="player-btn box-12"><div class="player-effect">12</div></div>
+				</div>
+				<!--<div class="palyer">player</div>-->
+				
+				<!--最新专辑弹出页-->
+				<div class="flip-container" id="new-spe">
+					<div class="close-flip">x</div>
+					<div class="special-wrap">
+					
+						<div class="content">
+							<table class="table table-hover table-responsive">
+								<div class="title">最新专辑</div>
+								<tbody>
+									<tr class="scl-item">
+										<td>Tanmay</td>
+										<td>Bangalore</td>
+										<td>560001</td>
+									</tr>
+									<tr class="scl-item">
+										<td>Sachin</td>
+										<td>Mumbai</td>
+										<td>400003</td>
+									</tr>
+									<tr class="scl-item">
+										<td>Uma</td>
+										<td>Pune</td>
+										<td>411027</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="page text-center">
+									<ul class="pagination">
+										<li>
+											<a href="#">&laquo;</a>
+										</li>
+										<li>
+											<a href="#">1</a>
+										</li>
+										<li>
+											<a href="#">2</a>
+										</li>
+										<li>
+											<a href="#">3</a>
+										</li>
+										<li>
+											<a href="#">4</a>
+										</li>
+										<li>
+											<a href="#">5</a>
+										</li>
+										<li>
+											<a href="#">&raquo;</a>
+										</li>
+									</ul>
+								</div>
+						</div>
+					</div>
+				</div>
+				<!--end!最新专辑弹出页-->
+				
+				<!--新歌推荐弹出框 -->
+				<div class="flip-container" id="new-songs">
+					<div class="close-flip">x</div>
+					<div class="special-wrap">
+					
+						<div class="content">
+							<table class="table table-hover table-responsive">
+								<div class="title">新歌推荐</div>
+								<tbody>
+									<tr class="scl-item">
+										<td>Tanmay</td>
+										<td>Bangalore</td>
+										<td>560001</td>
+									</tr>
+									<tr class="scl-item">
+										<td>Sachin</td>
+										<td>Mumbai</td>
+										<td>400003</td>
+									</tr>
+									<tr class="scl-item">
+										<td>Uma</td>
+										<td>Pune</td>
+										<td>411027</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="page text-center">
+									<ul class="pagination">
+										<li>
+											<a href="#">&laquo;</a>
+										</li>
+										<li>
+											<a href="#">1</a>
+										</li>
+										<li>
+											<a href="#">2</a>
+										</li>
+										<li>
+											<a href="#">3</a>
+										</li>
+										<li>
+											<a href="#">4</a>
+										</li>
+										<li>
+											<a href="#">5</a>
+										</li>
+										<li>
+											<a href="#">&raquo;</a>
+										</li>
+									</ul>
+								</div>
+						</div>
+					</div>
+				</div>
+				<!--end!新歌推荐-->
+				
+				<!--搜索弹出页 -->
+				<div class="flip-container" id="search">
+					<div class="close-flip">x</div>
+					<div class="special-wrap">
+				
+						<div class="content">
+							<div class="search-wrap text-center">
+								<div class="sr-style">
+									<div class="input-group">
+	           							<input type="text" class="form-control" placeholder="请输入关键词...">
+	           							<span class="input-group-btn">
+	           								<button class="btn btn-primary" type="button">
+	           									<span class="glyphicon glyphicon-search"></span>
+	           								</button>
+	           							</span>
+	        						</div>
+								</div>
+							</div>
+							<table class="table table-hover table-responsive text-center">
+								<thead>
+									<tr>
+										<td style="width: 60px; background-color: #204D74;"></td>
+										<td style="width: 200px; background-color: #23527C;">歌名</td>
+										<td>歌手名</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="scl-item">
+										<td>Tanmay</td>
+										<td>Bangalore</td>
+										<td>560001</td>
+									</tr>
+									<tr class="scl-item">
+										<td>Sachin</td>
+										<td>Mumbai</td>
+										<td>400003</td>
+									</tr>
+									<tr class="scl-item">
+										<td>Uma</td>
+										<td>Pune</td>
+										<td>411027</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="page text-center">
+								<ul class="pagination">
+									<li>
+										<a href="#">&laquo;</a>
+									</li>
+									<li>
+										<a href="#">1</a>
+									</li>
+									<li>
+										<a href="#">2</a>
+									</li>
+									<li>
+										<a href="#">3</a>
+									</li>
+									<li>
+										<a href="#">4</a>
+									</li>
+									<li>
+										<a href="#">5</a>
+									</li>
+									<li>
+										<a href="#">&raquo;</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end!搜索弹出页-->
+				
+				<!--歌单管理-->
+				<div class="flip-container" id="list-mana">
+					<div class="close-flip">x</div>
+					<div class="special-wrap kid-wrap" >
+						<div class="content">
+							<div class="mana-title">
+									<span class="lst-title">创建的歌单(3)</span>
+									<span class="lst-create">
+										<button class="btn btn-default" id="create"> 新建+ </button>
+									</span>
+							</div>
+							<table class="table table-hover table-responsive">
+								
+								<tbody>
+									<tr class="lst-item">
+										<td>Tanmay</td>
+										<td>Bangalore</td>
+										<td>560001</td>
+									</tr>
+									<tr class="lst-item">
+										<td>Sachin</td>
+										<td>Mumbai</td>
+										<td>400003</td>
+									</tr>
+									<tr class="lst-item">
+										<td>Uma</td>
+										<td>Pune</td>
+										<td>411027</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="page text-center">
+									<ul class="pagination">
+										<li>
+											<a href="#">&laquo;</a>
+										</li>
+										<li>
+											<a href="#">1</a>
+										</li>
+										<li>
+											<a href="#">2</a>
+										</li>
+										<li>
+											<a href="#">3</a>
+										</li>
+										<li>
+											<a href="#">4</a>
+										</li>
+										<li>
+											<a href="#">5</a>
+										</li>
+										<li>
+											<a href="#">&raquo;</a>
+										</li>
+									</ul>
+								</div>
+						</div>
+						
+					</div>
+					<!--
+                    	
+                    
+					<div class="test">
+						<div class="new-lst-wrap">
+							<div class="new-lst">
+								<div class="create-lst">
+									<span class="create-title">
+										新建歌单
+									</span>
+									<span class="close-create" style="background-color: #28A4C9; border-radius: 50%; display: inline-block;width: 40px; height: 40px;">x</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+					
+				<!--end!歌单管理-->
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>
+		<script type="text/javascript" src="js/sweet-alert.js" ></script>
+		<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/sweet-alert.css" />
+	</head>
+	<body>
+		<div id="main-container">
+			<div id="player-container">
+				<div id="player-wrap">
+					<div class="navigation box-1" ><div class="effect" id="nsp">最新专辑</div></div>
+					<div class="navigation box-2"><div class="effect" id="user-login">登陆</div></div>
+					<div class="navigation box-3"><div class="effect">新歌推荐</div></div>
+					<div class="navigation box-4"><div class="effect">歌单管理</div></div>
+					<div class="navigation box-5"><div class="effect">搜索</div></div>
+					<div class="navigation box-6"><div class="effect" id="logout">注销</div></div>
+					<div class="player-btn box-7">
+						<div class="player-effect">
+							<div class="play-order">
+								<i class="fa fa-refresh" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+					<div class="player-btn box-8">
+						<div class="player-effect">
+							<div class="play-before">
+								<i class="fa fa-fast-backward" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+					<div class="player-btn box-9">
+						<div class="player-effect">
+							<div class="play-after">
+								<i class="fa fa-fast-forward" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+					<div class="player-btn box-10">
+						<div class="player-effect">
+							<div class="vol">
+								<i class="fa fa-volume-up" aria-hidden="true"></i>
+							</div>
+						</div>
+					</div>
+					<div class="player-btn box-11">
+						<div class="play-lst">
+							<div class="play-wrap">
+								<i class="fa fa-list-ul"></i>
+							</div>
+						</div>
+						
+					</div>
+					<div class="player-btn box-12"><div class="player-effect-pro play-pro">00:00/00:00</div></div>
+					<div class="player-play-pause">
+						<audio src="audio/稻香.mp3" style="visibility: none;" id="the-audio"></audio>
+						
+						<div class="pause">
+							<i class="fa fa-pause" aria-hidden="true"></i>
+						</div>
+						<div class="play">
+							<i class="fa fa-play" aria-hidden="true"></i> 
+						</div>
+					</div>
+					
+				</div>
+				<!--<div class="palyer">player</div>-->
+				
+				<!--最新专辑弹出页-->
+				<div class="flip-container" id="new-spe">
+					<div class="close-flip">x</div>
+					<div class="special-wrap">
+					
+						<div class="content">
+							<div class="title">最新专辑</div>
+							<div class="special-cnt">
+								<table class="table table-hover table-responsive">
+									
+									<tbody class="special-lst">
+										<tr class="scl-item">
+											<td class="img-wrap">
+												<div class="song-img">
+													<img src="img/default.jpg" class="img-rounded" />
+												</div>
+												<div class="glyphicon glyphicon-play-circle  play-btn"></div>
+											</td>
+											<td class="spname-wrap">
+												<div class="special-name">
+													歌手名-专辑名
+												</div>
+											</td>
+											<td class="img-wrap">
+												<div class="glyphicon glyphicon-star-empty add-song coll-song"></div>
+											</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Sachin</td>
+											<td>Mumbai</td>
+											<td>400003</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Uma</td>
+											<td>Pune</td>
+											<td>411027</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end!最新专辑弹出页-->
+				
+				<!--新歌推荐弹出框 -->
+				<div class="flip-container" id="new-songs">
+					<div class="close-flip">x</div>
+					<div class="special-wrap">
+					
+						<div class="content">
+							<div class="title">新歌推荐</div>
+							<div class="new-song-cnt">
+								<table class="table table-hover table-responsive">
+									<tbody class="new-song-lst">
+										<tr class="scl-item">
+											<td>Tanmay</td>
+											<td>Bangalore</td>
+											<td>560001</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Sachin</td>
+											<td>Mumbai</td>
+											<td>400003</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Uma</td>
+											<td>Pune</td>
+											<td>411027</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end!新歌推荐-->
+				
+				<!--搜索弹出页 -->
+				<div class="flip-container" id="search">
+					<div class="close-flip" >x</div>
+					<div class="special-wrap">
+				
+						<div class="content">
+							<div class="search-wrap text-center">
+								<div class="sr-style">
+									<div class="input-group">
+	           							<input type="text" class="form-control search-song" placeholder="请输入关键词...">
+	           							<span class="input-group-btn">
+	           								<button class="btn btn-primary" id="kid-search">
+	           									<span class="glyphicon glyphicon-search"></span>
+	           								</button>
+	           							</span>
+	        						</div>
+								</div>
+							</div>
+							<table class="table table-hover table-responsive text-center">
+								<thead>
+									<tr>
+										<td style="width: 60px;"></td>
+										<td></td>
+										<td></td>
+										<td style="width: 70px; align-content: center;"></td>
+									</tr>
+								</thead>
+								<tbody class="search-cont">
+								</tbody>
+							</table>
+							<div class="page text-center">
+								<ul class="pagination">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end!搜索弹出页-->
+				
+				<!--歌单管理-->
+				<div class="flip-container" id="list-mana">
+					<div class="close-flip">x</div>
+					<div class="special-wrap kid-wrap" >
+						<div class="content">
+							<div class="mana-title">
+									<span class="lst-title">创建的歌单</span>
+									<span class="lst-create">
+										<button class="btn btn-default" id="create"> +新建 </button>
+									</span>
+							</div>
+							<table class="table table-hover table-responsive">
+								<tbody class="song-list">
+								</tbody>
+							</table>
+						</div>
+						
+					</div>
+					
+					<!--歌单内容-->
+					<div class="cont-lst">
+						<div class="close-flip">x</div>
+						<div class="special-wrap">
+						
+							<div class="content">
+								<div style="display: none;" id="ls-id"></div>
+								<table class="table table-hover table-responsive tab-style">
+									<div class="title">歌单列表</div>
+									<thead>
+										<tr class="title-lst">
+											<td> </td>
+											<td>歌曲名</td>
+											<td>歌手</td>
+										</tr>
+									</thead>
+									<tbody class="lst-dp">
+									</tbody>
+								</table>
+							</div>
+						</div>	
+					</div>
+					<!--end！歌单内容-->
+					
+					
+					<!--新建歌单-->
+					<div class="create-container" id="create-list">
+						<div class="close-flip">x</div>
+						<div class="create-content">
+							<div class="create-title">
+								新建歌单
+							</div>
+							<div class="form-wrap">
+								<div class="form-style">
+										<table>
+											<tr>
+												<td>
+													<label>歌单名:</label>
+												</td>
+												<td>
+													<input type="text" class="form-control lst-name" />
+												</td>
+											</tr>
+										</table >
+								</div>
+								
+								<div class="form-btn">
+									<table align="center">
+											<tr>
+												<td style="width: 100px;">
+													<button class="btn btn-default create-lst">确定</button>
+												</td>
+												<td>
+													<button class="btn btn-default" id="create-cancel">取消</button>
+												</td>
+											</tr>
+										</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--end!新建歌单-->
+					<!--
+                    	
+                    
+					<div class="test">
+						<div class="new-lst-wrap">
+							<div class="new-lst">
+								<div class="create-lst">
+									<span class="create-title">
+										新建歌单
+									</span>
+									<span class="close-create" style="background-color: #28A4C9; border-radius: 50%; display: inline-block;width: 40px; height: 40px;">x</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				-->
+					
+				<!--end!歌单管理-->
+				</div>
+			
+				<!--收藏歌曲-->
+				<div class="collect-container" id="song-collect">
+					<div class="close-flip">x</div>
+					<div class="coll-wrap">
+					
+						<div class="content">
+							<div class="song-id" style="display: none;"></div>
+							<div class="spid" style="display: none;"></div>
+							
+							<div class="col-title">&nbsp;&nbsp;添加到歌单</div>
+							<div class="scroll-dp">
+								<table class="table table-hover table-responsive">
+									<tbody class="coll-lst">
+										<tr class="scl-item">
+											<td>Tanmay</td>
+											<td>Bangalore</td>
+											<td>560001</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Sachin</td>
+											<td>Mumbai</td>
+											<td>400003</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Uma</td>
+											<td>Pune</td>
+											<td>411027</td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!--end!收藏歌曲-->
+				
+				<!--播放列表-->
+				<div class="plist-container" id="play-list">
+					<div class="close-flip">x</div>
+					<div class="special-wrap">
+					
+						<div class="content">
+							<div class="title">播放列表</div>
+							<div class="play-cnt-wrap">
+								<table class="table table-hover table-responsive table-condensed table-striped" >
+									<thead>
+										<tr class="title-lst">
+											<td> </td>
+											<td>歌曲名</td>
+											<td>歌手</td>
+										</tr>
+									</thead>
+									<tbody class="play-cnt">
+										<tr class="scl-item">
+											<td class="img-wrap">
+												
+												<div class="song-img">
+													<img src="img/default.jpg" class="img-rounded" />
+												</div>
+												
+												<div class="glyphicon glyphicon-play-circle  play-btn"></div>
+											</td>
+											<td class="spname-wrap">
+												<div class="special-name">
+													歌手名-专辑名
+												</div>
+											</td>
+											<td class="img-wrap">
+												<div class="glyphicon glyphicon-star-empty add-song coll-song"></div>
+											</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Sachin</td>
+											<td>Mumbai</td>
+											<td>400003</td>
+										</tr>
+										<tr class="scl-item">
+											<td>Uma</td>
+											<td>Pune</td>
+											<td>411027</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!--end！播放列表-->
+				
+				<!--用户登陆-->
+				<div class="flip-container" id="login">
+					<div class="close-flip">x</div>
+					
+					<div class="wrapper">
+						<div class="content">
+							<div id="form_wrapper" class="form_wrapper">
+								<form class="register">
+									<h3>注册</h3>
+									<div class="column">
+										<div>
+											<label>用户名:</label>
+											<input type="text"/>
+											<span class="error">This is an error</span>
+										</div>
+										<div>
+											<label>Email:</label>
+											<input type="text" />
+											<span class="error">This is an error</span>
+										</div>
+									</div>
+									<div class="column">
+										<div>
+											<label>密码:</label>
+											<input type="password" />
+											<span class="error">This is an error</span>
+										</div>
+										<div>
+											<label>确认密码:</label>
+											<input type="password" />
+											<span class="error">This is an error</span>
+										</div>
+									</div>
+									<div class="bottom">
+										<input type="submit" value="注册" />
+										<a href="index.html" rel="login" class="linkform">立即登陆</a>
+										<div class="clear"></div>
+									</div>
+								</form>
+								<form class="login active">
+									<h3>登陆</h3>
+									<div>
+										<label>用户名:</label>
+										<input type="text" id="username" />
+										<span class="error">这儿有一个错误</span>
+									</div>
+									<div>
+										<label>密码:</label>
+										<input type="password" id="password" />
+										<span class="error">这儿有一个错误</span>
+									</div>
+									<div class="bottom">
+										<div class="remember"><input type="checkbox" /><span>记住密码</span></div>
+										<input type="submit" value="登陆" id="submit"></input>
+										<a href="register.html" rel="register" class="linkform">注册</a>
+										<div class="clear"></div>
+									</div>
+								</form>
+								<form class="forgot_password">
+									<h3>Forgot Password</h3>
+									<div>
+										<label>Username or Email:</label>
+										<input type="text" />
+										<span class="error">This is an error</span>
+									</div>
+									<div class="bottom">
+										<input type="submit" value="Send reminder"></input>
+										<a href="index.html" rel="login" class="linkform">Suddenly remebered? Log in here</a>
+										<a href="register.html" rel="register" class="linkform">You don't have an account? Register here</a>
+										<div class="clear"></div>
+									</div>
+								</form>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					
+				</div>
+				<!--end!用户登陆-->
+				
+				<!--进度条-->
+				<div class="flip-container" id="play-process">
+					<div class="close-flip">x</div>
+					<div class="play-process-wrap">
+				
+						<div class="pro-cont">
+							<div class="progress" id="cur-pro">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 9%;">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end音量--->
+				
+				<!--音量-->
+				<div class="flip-container" id="play-vol">
+					<div class="close-flip">x</div>
+					<div class="play-process-wrap">
+				
+						<div class="pro-cont">
+							<div class="progress" id="cur-vol">
+								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 9%;">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end音量-->
+			</div>
+		</div>
+	</body>
+</html>
