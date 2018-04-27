@@ -24,7 +24,6 @@ public class HandleUserInfo {
 		
 		Map<String, Object> user = (Map<String, Object>)ses.getAttribute("user");
 		String rs = user == null? "0" : "1";
-		System.out.println(rs);
 		try {
 			res.getWriter().append(rs);
 		} catch (IOException e) {
@@ -40,7 +39,7 @@ public class HandleUserInfo {
 		HttpSession ses = req.getSession();
 		List<Map<String, Object>> rs = dao.doVerify(uname, pwd);
 		if(rs.size() == 1){
-			if((int)rs.get(0).get("level")==1){
+			if(((int)rs.get(0).get("level"))==1){
 				ses.setAttribute("user", rs.get(0));
 				try {
 					res.getWriter().append("1");
@@ -49,7 +48,9 @@ public class HandleUserInfo {
 				}
 			} else
 				try {
-					res.sendRedirect("http://localhost:8520/Home音乐网站/uploadMusic.html");
+					//res.getWriter().append("<script>window.location.href='uploadMusic.html';</script>");
+					res.getWriter().append("2");
+					//res.sendRedirect("uploadMusic.html");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -26,7 +26,6 @@ public class SongsOfController {
 		//获取参数
 		String keyword = req.getParameter("keyword");
 		int curPageNum = Integer.parseInt(req.getParameter("page"));
-		System.out.println(keyword + ":" + curPageNum);
 		
 		HttpSession ses = req.getSession();
 		List<Map<String, Object>> rs = dao.doSearch(keyword);
@@ -37,7 +36,6 @@ public class SongsOfController {
 		String data = JSON.toJSONString(tmp);
 		try {
 			res.getWriter().append(data);
-			System.out.println(json);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -47,7 +45,6 @@ public class SongsOfController {
 	void toPage(HttpServletRequest req, HttpServletResponse res){
 		
 		int curPageNum = Integer.parseInt(req.getParameter("pageNum"));
-		System.out.println(curPageNum);
 		HttpSession ses = req.getSession();
 		
 		Pagination page = (Pagination) ses.getAttribute("searchPage");
@@ -67,7 +64,6 @@ public class SongsOfController {
 		
 		List<Map<String, Object>> rs = dao.getLatestSongs();
 		String json = JSON.toJSONString(rs);
-		System.out.println(rs);
 		try {
 			res.getWriter().append(json);
 		} catch (IOException e) {
@@ -79,7 +75,6 @@ public class SongsOfController {
 	void getLastestSpecial(HttpServletRequest req, HttpServletResponse res){
 		List<Map<String, Object>> rs = dao.getLatestSpecial();
 		String json = JSON.toJSONString(rs);
-		System.out.println(rs);
 		try {
 			res.getWriter().append(json);
 		} catch (IOException e) {
