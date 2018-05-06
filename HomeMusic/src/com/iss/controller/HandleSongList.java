@@ -27,8 +27,8 @@ public class HandleSongList {
 		HttpSession ses = req.getSession();
 		
 		Map<String, Object> user = (Map<String, Object>)ses.getAttribute("user");
-		//String uid = (String)user.get("id");
-		List<Map<String, Object>> rs = dao.getUserLst(1+"");
+		String uid = user.get("id").toString();
+		List<Map<String, Object>> rs = dao.getUserLst(uid);
 		String json = JSON.toJSONString(rs);
 		
 		try {
@@ -44,7 +44,6 @@ public class HandleSongList {
 		String name = req.getParameter("lstname");
 		
 		HttpSession ses = req.getSession();
-		
 		Map<String, Object> user = (Map<String, Object>) ses.getAttribute("user");
 		dao.doCreateLst(name, (int) user.get("id"));
 	}
@@ -54,7 +53,6 @@ public class HandleSongList {
 		int lsid = Integer.parseInt(req.getParameter("lsid"));
 		
 		dao.doDelLst(lsid);
-		//String json = "{'ret':'ok'}";
 		res.setCharacterEncoding("utf-8");
 		res.setContentType("application/json");
 
@@ -96,7 +94,7 @@ public class HandleSongList {
 	void collSong(HttpServletRequest req, HttpServletResponse res){
 		int slid = Integer.parseInt(req.getParameter("slid"));
 		int sid = Integer.parseInt(req.getParameter("sid"));
-		System.out.println(slid+"----"+sid);
+		//System.out.println(slid+"----"+sid);
 		dao.collSong(slid, sid);
 	}
 	
