@@ -21,7 +21,7 @@
 
 ### 2.1功能描述
 <div align="center">
-<img src="Document-illustration/userCase.png" height="200px" alt="图片说明" >
+<img src="Document-illustration/userCase.png" height="400px" alt="图片说明" >
    <h5>图1 功能用例图</h5>
 </div>
 
